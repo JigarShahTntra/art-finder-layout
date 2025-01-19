@@ -37,39 +37,31 @@ const ArtFinderDashboard = () => {
   const renderLinks = (source: string) => {
     const links = {
       Reddit: [
-        "Reddit Link 1",
-        "Reddit Link 2",
-        "Reddit Link 3",
-        "Reddit Link 4",
-        "Reddit Link 5",
+        "https://www.reddit.com/r/Meditation/comments/38w53b/best_guide_for_beginners/",
+        "https://www.reddit.com/r/Meditation/comments/139z60d/meditation_tips_for_beginners/",
+        "https://www.reddit.com/r/Meditation/comments/mbynf9/beginner_meditation_techniques/",
       ],
       Quora: [
-        "Quora Link 1",
-        "Quora Link 2",
-        "Quora Link 3",
-        "Quora Link 4",
-        "Quora Link 5",
+        "https://www.quora.com/What-meditation-techniques-do-you-recommend-for-beginners-feeling-overwhelmed",
+        "https://www.quora.com/How-do-I-meditate-being-a-beginner",
+        "https://www.quora.com/What-are-some-meditation-techniques-for-beginners-that-can-be-done-in-a-short-time-less-than-ten-minutes?top_ans=353592340",
       ],
       YouTube: [
-        "YouTube Thumbnail 1",
-        "YouTube Thumbnail 2",
-        "YouTube Thumbnail 3",
+        "https://www.youtube.com/watch?v=Hzi3PDz1AWU",
+        "https://www.youtube.com/watch?v=S-W1GFBJbt0",
+        "https://www.youtube.com/watch?v=DZbk6HhF7GE&t=5m43"
         // "YouTube Thumbnail 4",
         // "YouTube Thumbnail 5",
       ],
       Google: [
-        "Google Link 1",
-        "Google Link 2",
-        "Google Link 3",
-        "Google Link 4",
-        "Google Link 5",
+        "https://books.google.co.in/books/about/Meditation_for_Beginners.html?id=dalmvxNH7mUC&redir_esc=y",
+        "https://sites.google.com/a/freemindfulness.org/free-mindfulness",
+        "https://sites.google.com/sps.org/sps-virtual-calming-site/guided-practice/meditation",
       ],
       "App Reviews": [
-        "App Review Link 1",
-        "App Review Link 2",
-        "App Review Link 3",
-        "App Review Link 4",
-        "App Review Link 5",
+        "https://play.google.com/store/apps/details?id=com.subconscious.thrive",
+        "https://play.google.com/store/apps/details?id=com.profil_software.android.mindses",
+        "https://play.google.com/store/apps/details?id=com.lujainapp.how.to.meditate",
       ],
     };
 
@@ -83,26 +75,15 @@ const ArtFinderDashboard = () => {
               //   alt={`Thumbnail ${index + 1}`}
               //   className="h-16 w-16"
               // />
-              <CardContent>
-                {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4"> */}
-                <div className="flex item">
-                  {/* {[1, 2, 3].map((item) => ( */}
-                  <div
-                    key={link}
-                    className="bg-gray-100 p-4 rounded-lg w-[283px]"
-                  >
-                    <div className="w-[250px] h-32 bg-gray-200 rounded-lg mb-2" />
-                    <h3 className="font-medium">Video Title {link}</h3>
-                    <p className="text-sm text-gray-600">
-                      1.2M views • 2 weeks ago
-                    </p>
-                  </div>
-                  {/* ))} */}
-                </div>
-              </CardContent>
+                <CardContent>
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                        Link {index + 1}
+                    </a>
+                    {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4"> */}
+                </CardContent>
             ) : (
               <a href={link} target="_blank" rel="noopener noreferrer">
-                {link}
+                Link {index + 1}
               </a>
             )}
           </div>
@@ -119,70 +100,93 @@ const ArtFinderDashboard = () => {
     ],
     competitors: [
       {
-        name: "Competitor A",
-        engagement: 82,
+        name: "Headspace",
+        engagement: 88,
         growth: 12,
         sentiment: {
-          positive: 70,
-          neutral: 20,
-          negative: 10,
+          positive: 78,
+          neutral: 15,
+          negative: 7,
         },
-        topLinks: ["link1.com", "link2.com", "link3.com"],
+        topLinks: ["https://www.grizzle.io/blog/headspace", "https://www.grizzle.io/blog/headspace", "https://www.linkedin.com/pulse/headspace-content-marketing-strategy-beyond-obvious-devansh-doshi"],
       },
       {
-        name: "Competitor B",
-        engagement: 67,
-        growth: -5,
+        name: "Calm",
+        engagement: 92,
+        growth: 8,
         sentiment: {
-          positive: 60,
-          neutral: 30,
-          negative: 10,
+          positive: 82,
+          neutral: 10,
+          negative: 8,
         },
-        topLinks: ["link1.com", "link2.com", "link3.com"],
+        topLinks: ["https://www.linkedin.com/pulse/finding-peace-noise-how-calms-silent-ad-hfmue", "https://www.tatari.tv/insights/how-calm-used-digital-tactics-to-master-tv-brand-advertising", "https://www.altmarketingschool.com/calm-app-marketing/"],
       },
       {
-        name: "Competitor C",
-        engagement: 58,
+        name: "Insight Timer",
+        engagement: 80,
         growth: 8,
         sentiment: {
           positive: 70,
           neutral: 20,
           negative: 10,
         },
-        topLinks: ["link1.com", "link2.com", "link3.com"],
+        topLinks: ["https://medium.com/insighttimer/23-million-downloads-with-a-cent-spent-on-advertising-abea7e696e76", "https://canvasbusinessmodel.com/blogs/how-it-works/insight-timer-how-it-works", "https://www.businesswire.com/news/home/20211130005014/en/Insight-Timer-Meditation-App-Builds-%E2%80%98My-Workplace%E2%80%99-For-Companies-to-Share-Wellbeing-Experiences-and-Upskill-with-Leading-Psychologists-for-Free"],
       },
     ],
     recommendations: [
       {
         type: "Hook",
-        content: "Address price sensitivity with value-focused messaging",
+        content: "Develop a series of short, guided meditation sessions specifically designed to enhance focus. Incorporate techniques such as breath awareness and visualization, and provide users with progress tracking to encourage consistency.",
+        impact: "High",
+      },
+      {
+        type: "Hook",
+        content: "Create a library of 5-10 minute meditation sessions that can be easily integrated into daily routines. Promote these sessions through targeted marketing campaigns emphasizing their convenience and effectiveness for busy individuals.",
+        impact: "Medium",
+      },
+      {
+        type: "Hook",
+        content: "Implement a personalized quiz that guides users to the most suitable meditation techniques based on their preferences and goals. This can simplify the selection process and enhance user satisfaction.",
+        impact: "Medium",
+      },
+      {
+        type: "CTA",
+        content: "Create a campaign centered around breath awareness, including video tutorials, infographics, and live sessions. Encourage users to share their experiences on social media, fostering community engagement and increasing visibility.",
         impact: "High",
       },
       {
         type: "CTA",
-        content: "Emphasize free trial with no credit card required",
+        content: "Develop marketing content that addresses common emotional pain points (e.g., stress, anxiety) and showcases how meditation can provide relief. Use testimonials and success stories to create relatable narratives that resonate with potential users.",
+        impact: "High",
+      },
+      {
+        type: "CTA",
+        content: "Introduce a freemium model that allows users to access basic content for free while offering premium features at a competitive price. This can attract a larger user base and convert free users into paying customers over time.",
         impact: "High",
       },
       {
         type: "Content",
-        content: "Create video tutorials focusing on ease of use",
-        impact: "Medium",
+        content: "Create a community platform where users can share experiences, ask questions, and support each other. Incorporate features like forums, group challenges, and live Q&A sessions with meditation experts to enhance user engagement and retention.",
+        impact: "High",
       },
+      {
+        type: "Content",
+        content: "Position your platform as the go-to resource for beginners by offering comprehensive guides, beginner courses, and community support. Highlight these features in marketing campaigns to attract new users.",
+        impact: "Medium",
+      }
     ],
   };
   const data = {
     labels: [
-      "Pain Point 1",
-      "Pain Point 2",
-      "Pain Point 3",
-      "Pain Point 4",
-      "Pain Point 5",
+      "Difficulty focusing",
+      "Lack of time",
+      "Overwhelmed by options",
       "Others",
     ],
     datasets: [
       {
-        label: "#Impact on Users",
-        data: [12, 19, 3, 5, 2, 1],
+        label: "#Impact on % of Users",
+        data: [47, 23, 19, 11],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -210,12 +214,12 @@ const ArtFinderDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F0F0F] text-white p-8 relative overflow-hidden">
+    <div className="min-h-screen bg-[#0F0F0F] text-white p-8 relative overflow-hidden backdrop-filter backdrop-blur">
       <div className="fixed top-20 left-20 w-[500px] h-[500px] opacity-30 pointer-events-none"
         style={{
           background: 'radial-gradient(ellipse at center, #3c10d9db, #3c11d77e, #311b6100 60%)',
           filter: 'blur(40px)',
-          zIndex: 0,
+          zIndex: 1000,
           animation: 'pulse 8s ease-in-out infinite'
         }}
       />
@@ -223,18 +227,18 @@ const ArtFinderDashboard = () => {
         style={{
           background: 'radial-gradient(ellipse at center, #3c10d9db, #3c11d77e, #311b6100 60%)',
           filter: 'blur(30px)',
-          zIndex: 0,
+          zIndex: 1000,
           animation: 'pulse 6s ease-in-out infinite'
         }}
       />
 
-      <div className="fixed top-1/4 right-1/3 w-3 h-3 bg-blue-400 rounded-full animate-float"
+      <div className="fixed top-1/3 right-1/3 w-3 h-64 bg-blue-400 rounded-full animate-float"
         style={{
           boxShadow: '0 0 30px #60A5FA',
           animation: 'float 10s ease-in-out infinite'
         }}
       />
-      <div className="fixed bottom-1/3 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-float-delayed"
+      <div className="fixed bottom-1/3 left-1/4 blurry w-3 h-64 bg-purple-400 rounded-full animate-float-delayed"
         style={{
           boxShadow: '0 0 20px #A78BFA',
           animation: 'float 8s ease-in-out infinite 1s'
@@ -282,7 +286,7 @@ const ArtFinderDashboard = () => {
         <div className="absolute bottom-0 right-0 w-[1px] h-full bg-gradient-to-t from-transparent via-purple-500 to-transparent animate-pulse-fast" />
       </div>
 
-      <div className="relative z-10">
+      <div className="relative ">
         <div className="mb-8 animate-fade-in">
           <h1 className="text-3xl font-bold mb-2 text-white hover:text-blue-400 transition-colors">
             ART Finder Dashboard
@@ -362,15 +366,35 @@ const ArtFinderDashboard = () => {
                   <div className="space-y-6">
                     <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold">Point 1</span>
+                        <span className="font-bold">Difficulty focusing</span>
                       </div>
                       <div>
                         <span className="font-medium flex">
-                          Lorem Ipsum Explaination of Point 1
+                          For many beginners struggle to maintain concentration during meditation, leading to frustration and abandonment of practice.
                         </span>
                       </div>
                     </div>
                     <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold">Lack of time</span>
+                      </div>
+                      <div>
+                        <span className="font-medium flex">
+                            Users often feel they cannot find time in their busy schedules to meditate, which discourages them from starting or continuing their practice.
+                        </span>
+                      </div>
+                    </div>
+                    <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold">Overwhelmed by options</span>
+                      </div>
+                      <div>
+                        <span className="font-medium flex">
+                            The variety of meditation techniques can be confusing for newcomers, leading to decision fatigue.
+                        </span>
+                      </div>
+                    </div>
+                    {/* <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
                       <div className="flex items-center justify-between">
                         <span className="font-bold">Point 1</span>
                       </div>
@@ -379,27 +403,7 @@ const ArtFinderDashboard = () => {
                           Lorem Ipsum Explaination of Point 1
                         </span>
                       </div>
-                    </div>
-                    <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold">Point 1</span>
-                      </div>
-                      <div>
-                        <span className="font-medium flex">
-                          Lorem Ipsum Explaination of Point 1
-                        </span>
-                      </div>
-                    </div>
-                    <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold">Point 1</span>
-                      </div>
-                      <div>
-                        <span className="font-medium flex">
-                          Lorem Ipsum Explaination of Point 1
-                        </span>
-                      </div>
-                    </div>
+                    </div> */}
                   </div>
                 </CardContent>
               </Card>
@@ -415,15 +419,35 @@ const ArtFinderDashboard = () => {
                   <div className="space-y-6">
                     <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold">Point 1</span>
+                        <span className="font-bold">Emphasis on Meditation</span>
                       </div>
                       <div>
                         <span className="font-medium flex">
-                          Lorem Ipsum Explaination of Point 1
+                            The strong focus on meditation across platforms indicates a growing interest in mental well-being.
                         </span>
                       </div>
                     </div>
                     <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold">Focus on Beginners</span>
+                      </div>
+                      <div>
+                        <span className="font-medium flex">
+                            There is a significant demand for beginner-friendly content and resources
+                        </span>
+                      </div>
+                    </div>
+                    <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold">Popularity of Guided Techniques</span>
+                      </div>
+                      <div>
+                        <span className="font-medium flex">
+                            Guided meditation is a popular entry point for many users.
+                        </span>
+                      </div>
+                    </div>
+                    {/* <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
                       <div className="flex items-center justify-between">
                         <span className="font-bold">Point 1</span>
                       </div>
@@ -432,27 +456,7 @@ const ArtFinderDashboard = () => {
                           Lorem Ipsum Explaination of Point 1
                         </span>
                       </div>
-                    </div>
-                    <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold">Point 1</span>
-                      </div>
-                      <div>
-                        <span className="font-medium flex">
-                          Lorem Ipsum Explaination of Point 1
-                        </span>
-                      </div>
-                    </div>
-                    <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold">Point 1</span>
-                      </div>
-                      <div>
-                        <span className="font-medium flex">
-                          Lorem Ipsum Explaination of Point 1
-                        </span>
-                      </div>
-                    </div>
+                    </div> */}
                   </div>
                 </CardContent>
               </Card>
@@ -468,41 +472,41 @@ const ArtFinderDashboard = () => {
                   <div className="space-y-6">
                     <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold">Point 1</span>
+                        <span className="font-bold">Guided Meditation</span>
                       </div>
                       <div>
                         <span className="font-medium flex">
-                          Lorem Ipsum Explaination of Point 1
+                            The structured nature of guided meditations alleviates anxiety for beginners.
                         </span>
                       </div>
                     </div>
                     <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold">Point 1</span>
+                        <span className="font-bold">Focus on Your Breath</span>
                       </div>
                       <div>
                         <span className="font-medium flex">
-                          Lorem Ipsum Explaination of Point 1
+                            Emphasizing breath-focused techniques resonates with users seeking simplicity.
                         </span>
                       </div>
                     </div>
                     <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold">Point 1</span>
+                        <span className="font-bold">Community Engagement</span>
                       </div>
                       <div>
                         <span className="font-medium flex">
-                          Lorem Ipsum Explaination of Point 1
+                            Users are drawn to community-driven experiences.
                         </span>
                       </div>
                     </div>
                     <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold">Point 1</span>
+                        <span className="font-bold">Emotional Connection</span>
                       </div>
                       <div>
                         <span className="font-medium flex">
-                          Lorem Ipsum Explaination of Point 1
+                          Emotional hooks can significantly enhance user engagement.
                         </span>
                       </div>
                     </div>
@@ -536,14 +540,18 @@ const ArtFinderDashboard = () => {
                 </CardHeader>
                 <CardContent className="text-gray-300">
                   <div className="p-6 bg-[#2A2A2A] shadow-lg rounded-lg border border-[#3A3A3A]">
-                    <h2 className="text-2xl font-bold text-white mb-4">Word Cloud</h2>
                     <div className="flex flex-wrap justify-center gap-4">
                       {[
-                        { text: "React", size: 40, color: "#60A5FA" },  // blue-400
-                        { text: "JavaScript", size: 30, color: "#34D399" }, // emerald-400
-                        { text: "TailwindCSS", size: 20, color: "#A78BFA" }, // violet-400
-                        { text: "UI", size: 50, color: "#F87171" }, // red-400
-                        { text: "Component", size: 25, color: "#FBBF24" }, // amber-400
+                        { text: "Meditation", size: 50, color: "#60A5FA" },
+                        { text: "Beginners", size: 40, color: "#34D399" },
+                        { text: "Techniques", size: 44, color: "#60A5FA" },
+                        { text: "Mindfulness", size: 36,  color: "#A78BFA" }, 
+                        { text: "Breathing", size:  38, color: "#F87171" },
+                        { text: "Focus", size: 62, color: "#FBBF24" },
+                        { text: "Distractions", size: 71, color: "#34D399" },
+                        { text: "Relaxation", size: 30, color: "#60A5FA" },
+                        { text: "Guided", size: 28, color: "#A78BFA" },
+                        { text: "Others", size: 2, color: "#F87171" },
                       ].map((word, index) => (
                         <span
                           key={index}
@@ -563,7 +571,7 @@ const ArtFinderDashboard = () => {
               </Card>
             </div>
 
-            <Card className="bg-[#1A1A1A] border-[#2A2A2A] hover:border-blue-500/50 transition-all duration-300 
+            {/* <Card className="bg-[#1A1A1A] border-[#2A2A2A] hover:border-blue-500/50 transition-all duration-300 
                              hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] animate-slide-up-2">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-white">
@@ -584,7 +592,7 @@ const ArtFinderDashboard = () => {
                   ))}
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
           </TabsContent>
 
           <TabsContent
@@ -604,7 +612,7 @@ const ArtFinderDashboard = () => {
                     >
                       <FileText className="h-4 w-4" />
                       <AlertDescription>
-                        Data from {source}: 1,234 entries analyzed
+                        Data from {source} has been analyzed
                       </AlertDescription>
                       {activeSource === source && renderLinks(source)}
                     </Alert>
@@ -629,72 +637,78 @@ const ArtFinderDashboard = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-gray-300">
-                  <div className="flex space-x-4 items-center justify-between py-5 px-20">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {insights.competitors.map((competitor, index) => (
-                      <div key={index} className="space-y-4">
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between">
-                            <span className="font-medium">{competitor.name}</span>
-                          </div>
-                          <div className="flex justify-between text-sm text-gray-600">
-                            <div>Engagement Score: {competitor.engagement}</div>
-                          </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div
-                              className="bg-blue-600 h-2 rounded-full"
-                              style={{ width: `${competitor.engagement}%` }}
-                            />
-                          </div>
-                          <div className="text-sm text-gray-600">
-                            <div>Sentiment:</div>
-                            <div className="w-full bg-gray-200 rounded-full h-2 flex mt-[5px]">
-                              <div
-                                className="bg-green-500 h-2 rounded-l-full"
-                                style={{
-                                  width: `${competitor.sentiment.positive}%`,
-                                }}
-                              />
-                              <div
-                                className="bg-yellow-500 h-2"
-                                style={{
-                                  width: `${competitor.sentiment.neutral}%`,
-                                }}
-                              />
-                              <div
-                                className="bg-red-500 h-2 rounded-r-full"
-                                style={{
-                                  width: `${competitor.sentiment.negative}%`,
-                                }}
-                              />
-                            </div>
-                          </div>
-                          <div className="text-[10px] flex space-x-5">
-                            <span className="text-green-500">Positive</span>
-                            <span className="text-yellow-500">Neutral</span>
-                            <span className="text-red-500">Negative</span>
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="font-medium">Top 3 Links:</div>
-                          <div className="flex flex-col">
-                            {competitor.topLinks &&
-                              competitor.topLinks
-                                .slice(0, 3)
-                                .map((link, linkIndex) => (
-                                  <a
-                                    key={linkIndex}
-                                    href={link}
-                                    target="_blank"
-                                    rel="noopener"
-                                  >
-                                    {link}
-                                  </a>
-                                ))}
-                          </div>
-                        </div>
-                      </div>
+                        <Card className="bg-[#1A1A1A] border-[#2A2A2A] hover:border-blue-500/50 transition-all duration-300 
+                                    hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] animate-slide-up-1">
+                            <CardHeader>
+                            <CardTitle className="flex items-center gap-2 text-white group">
+                                <Target className="text-blue-500 group-hover:rotate-180 transition-transform duration-500" />
+                                <span className="group-hover:text-blue-400 transition-colors">{competitor.name}</span>
+                            </CardTitle>
+                            </CardHeader>
+                            <CardContent className="text-gray-300">
+                                <div className="space-y-6 ">
+                                    <div className="space-y-2 hover:translate-x-2 transition-transform duration-300">
+                                        <div className="flex items-center justify-between">
+                                            <span className="font-bold">Engagement Score: {competitor.engagement}%</span>
+                                        </div>
+                                        <div>
+                                            <span className="font-medium flex">
+                                                <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${competitor.engagement}%` }} />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="space-y-2 transition-transform duration-300">
+                                        <div className="flex items-center justify-between">
+                                            <span className="font-bold">Sentiments:</span>
+                                        </div>
+                                        <div>
+                                            <span className="font-medium flex">
+                                            <div
+                                                className="bg-green-500 h-2 rounded-l-full"
+                                                style={{
+                                                width: `${competitor.sentiment.positive}%`,
+                                                }}
+                                            />
+                                            <div
+                                                className="bg-yellow-500 h-2"
+                                                style={{
+                                                width: `${competitor.sentiment.neutral}%`,
+                                                }}
+                                            />
+                                            <div
+                                                className="bg-red-500 h-2 rounded-r-full"
+                                                style={{
+                                                width: `${competitor.sentiment.negative}%`,
+                                                }}
+                                            />
+                                            </span>
+                                        </div>
+                                        <div className="text-[15px] flex space-x-5">
+                                            <span className="text-green-500">Positive</span>
+                                            <span className="text-yellow-500">Neutral</span>
+                                            <span className="text-red-500">Negative</span>
+                                        </div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <div className="flex items-center justify-between">
+                                            <span className="font-bold">Top Content: </span>
+                                        </div>
+                                        {competitor.topLinks && competitor.topLinks.slice(0, 3).map((link, linkIndex) => (
+                                            <div className="space-y-2 transition-transform duration-300">
+                                                <span className="font-medium flex"></span>
+                                                <a key={linkIndex} href={link} target="_blank" rel="noopener">
+                                                    {link}
+                                                </a>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
                     ))}
-                  </div>
+                    </div>
                 </CardContent>
               </Card>
 
