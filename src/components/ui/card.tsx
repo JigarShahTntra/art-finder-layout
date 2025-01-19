@@ -1,7 +1,7 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-const Card = React.forwardRef<HTMLDivElement, { className?: string }>(
+const Card = React.forwardRef<HTMLDivElement, { className?: string, children?: React.ReactNode }>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
@@ -13,6 +13,7 @@ const Card = React.forwardRef<HTMLDivElement, { className?: string }>(
     />
   )
 )
+Card.displayName = "Card";
 
 const CardHeader = React.forwardRef<HTMLDivElement, 
   React.HTMLAttributes<HTMLDivElement>
@@ -23,10 +24,11 @@ const CardHeader = React.forwardRef<HTMLDivElement,
     {...props}
   />
 ))
+CardHeader.displayName = "CardHeader";
 
 const CardTitle = React.forwardRef<
-  React.HTMLAttributes<HTMLHeadingElement>,
-  HTMLParagraphElement
+HTMLHeadingElement,
+React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
@@ -37,6 +39,7 @@ const CardTitle = React.forwardRef<
     {...props}
   />
 ))
+CardTitle.displayName = "CardTitle";
 
 const CardContent = React.forwardRef<
   HTMLDivElement,
@@ -44,5 +47,6 @@ const CardContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
 ))
+CardContent.displayName = "CardContent";
 
 export { Card, CardHeader, CardTitle, CardContent }

@@ -4,16 +4,12 @@ import {
   TrendingUp,
   MessageCircle,
   Eye,
-  Youtube,
   FileText,
   BarChart2,
   Cloud,
   ThumbsUp,
   Target,
-  Award,
   Zap,
-  ArrowUp,
-  ArrowDown,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -45,6 +41,8 @@ const ArtFinderDashboard = () => {
   const handleClickOut = () => {
     setActiveSource(null);
   };
+
+  const sources: ("Reddit" | "Quora" | "YouTube" | "Google" | "App Reviews")[] = ["Reddit", "Quora", "YouTube", "Google", "App Reviews"]
 
   const renderLinks =  (source: keyof typeof links) => {
     const links = {
@@ -376,7 +374,6 @@ const ArtFinderDashboard = () => {
                              hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] animate-slide-up-1">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-white group">
-                    <Target className="text-blue-500 group-hover:rotate-180 transition-transform duration-500" />
                     <span className="group-hover:text-blue-400 transition-colors">Pain Points</span>
                   </CardTitle>
                 </CardHeader>
@@ -429,7 +426,6 @@ const ArtFinderDashboard = () => {
                              hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] animate-slide-up-1">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-white group">
-                    <Target className="text-blue-500 group-hover:rotate-180 transition-transform duration-500" />
                     <span className="group-hover:text-blue-400 transition-colors">Trends Insights</span>
                   </CardTitle>
                 </CardHeader>
@@ -482,7 +478,6 @@ const ArtFinderDashboard = () => {
                              hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] animate-slide-up-1">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-white group">
-                    <Target className="text-blue-500 group-hover:rotate-180 transition-transform duration-500" />
                     <span className="group-hover:text-blue-400 transition-colors">Trigger Insights</span>
                   </CardTitle>
                 </CardHeader>
@@ -620,7 +615,7 @@ const ArtFinderDashboard = () => {
             <Card>
               <CardContent className="pt-6">
                 {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> */}
-                {["Reddit", "Quora", "YouTube", "Google", "App Reviews"].map(
+                {sources.map(
                   (source, index) => (
                     <Alert
                       key={index}
@@ -714,13 +709,13 @@ const ArtFinderDashboard = () => {
                                             <span className="font-bold">Top Content: </span>
                                         </div>
                                         {competitor.topLinks && competitor.topLinks.slice(0, 3).map((link, linkIndex) => (
-                                            <div className="space-y-2 transition-transform duration-300">
-                                                <span className="font-medium flex"></span>
-                                                <a key={linkIndex} href={link} target="_blank" rel="noopener">
-                                                    {link}
-                                                </a>
-                                            </div>
-                                        ))}
+  <div key={linkIndex} className="space-y-2 transition-transform duration-300">
+    <span className="font-medium flex"></span>
+    <a href={link} target="_blank" rel="noopener">
+      {link}
+    </a>
+  </div>
+))}       
                                     </div>
                                 </div>
                             </CardContent>
@@ -806,150 +801,5 @@ const ArtFinderDashboard = () => {
     </div>
   );
 };
-
-const styles = `
-  @keyframes pulse {
-    0% {
-      transform: scale(0.95);
-      opacity: 0.5;
-    }
-    50% {
-      transform: scale(1.1);
-      opacity: 0.8;
-    }
-    100% {
-      transform: scale(0.95);
-      opacity: 0.5;
-    }
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-
-  @keyframes moveVertical {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(100vh);
-    }
-  }
-
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes pulse-fast {
-    0% {
-      opacity: 0.2;
-    }
-    50% {
-      opacity: 0.8;
-    }
-    100% {
-      opacity: 0.2;
-    }
-  }
-
-  @keyframes matrixRain {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(100%);
-    }
-  }
-
-  .animate-float-delayed {
-    animation-delay: 1s;
-  }
-
-  .animate-spin-slow {
-    animation-duration: 20s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  .matrix-rain {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg, 
-      rgba(60, 16, 217, 0.3) 0%,
-      rgba(60, 16, 217, 0.1) 50%,
-      transparent 100%
-    );
-    background-size: 100% 200%;
-  }
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes slide-up {
-    from {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.5s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slide-up 0.5s ease-out forwards;
-  }
-
-  .animate-slide-up-1 {
-    animation: slide-up 0.5s ease-out 0.1s forwards;
-    opacity: 0;
-  }
-
-  .animate-slide-up-2 {
-    animation: slide-up 0.5s ease-out 0.2s forwards;
-    opacity: 0;
-  }
-
-  /* Add hover animations */
-  .hover-glow {
-    transition: all 0.3s ease-in-out;
-  }
-
-  .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(37,99,235,0.3);
-    transform: translateY(-2px);
-  }
-
-  /* Add group animations */
-  .group:hover .group-hover\:rotate-180 {
-    transform: rotate(180deg);
-  }
-`;
 
 export default ArtFinderDashboard;

@@ -19,9 +19,11 @@ const TabsList = React.forwardRef<
     />
   )
 )
+TabsList.displayName = "TabsList";
+
 
 const TabsTrigger = React.forwardRef<
-  React.ForwardedRef<typeof TabsPrimitive.Trigger>,
+HTMLButtonElement,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Trigger
@@ -33,9 +35,10 @@ const TabsTrigger = React.forwardRef<
     {...props}
   />
 ))
+TabsTrigger.displayName = "TabsTrigger";
 
 const TabsContent = React.forwardRef<
-  React.RefObject<typeof TabsPrimitive.Content>,
+HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Content
@@ -47,5 +50,7 @@ const TabsContent = React.forwardRef<
     {...props}
   />
 ))
+TabsContent.displayName = "TabsContent";
+
 
 export { Tabs, TabsList, TabsTrigger, TabsContent }
