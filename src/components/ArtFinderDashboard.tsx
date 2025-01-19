@@ -46,7 +46,7 @@ const ArtFinderDashboard = () => {
     setActiveSource(null);
   };
 
-  const renderLinks = (source: string) => {
+  const renderLinks =  (source: keyof typeof links) => {
     const links = {
       Reddit: [
         "https://www.reddit.com/r/Meditation/comments/38w53b/best_guide_for_beginners/",
