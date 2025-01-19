@@ -25,6 +25,18 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const ArtFinderDashboard = () => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [activeSource, setActiveSource] = useState<string | null>(null);
+  const [inputValue, setInputValue] = useState("");
+  const [showTabs, setShowTabs] = useState(false);
+
+  const handleSearch = () => {
+    if(inputValue.trim() === "") return;
+    setIsAnalyzing(true);
+    setShowTabs(false);
+    setTimeout(() => {
+      setIsAnalyzing(false);
+      setShowTabs(true);
+    }, 25000);
+  };
 
   const handleClick = (source: string) => {
     setActiveSource(source);
@@ -208,10 +220,6 @@ const ArtFinderDashboard = () => {
     ],
   };
 
-  const handleSearch = () => {
-    setIsAnalyzing(true);
-    setTimeout(() => setIsAnalyzing(false), 2000);
-  };
 
   return (
     <div className="min-h-screen bg-[#0F0F0F] text-white p-8 relative overflow-hidden backdrop-filter backdrop-blur">
@@ -302,6 +310,8 @@ const ArtFinderDashboard = () => {
               <input
                 type="text"
                 placeholder="Enter your topic or brand name"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
                 className="flex-1 p-3 border rounded-lg bg-[#2A2A2A] border-[#3A3A3A] text-white placeholder:text-gray-500 
                          focus:border-blue-500 focus:ring-blue-500/50 transition-all duration-300"
               />
@@ -317,6 +327,14 @@ const ArtFinderDashboard = () => {
           </CardContent>
         </Card>
 
+        {isAnalyzing && (
+        <div className="flex flex-col justify-center items-center">
+          <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32"></div>
+          <div className="">Processing...</div>
+        </div>
+      )}
+
+        {showTabs && (
         <Tabs defaultValue="insights" className="space-y-4">
           <TabsList className="grid grid-cols-4 gap-4 bg-transparent animate-fade-in">
             <TabsTrigger
@@ -603,9 +621,9 @@ const ArtFinderDashboard = () => {
               <CardContent className="pt-6">
                 {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> */}
                 {["Reddit", "Quora", "YouTube", "Google", "App Reviews"].map(
-                  (source) => (
+                  (source, index) => (
                     <Alert
-                      key={source}
+                      key={index}
                       onClick={() => handleClick(source)}
                       onMouseLeave={handleClickOut}
                       className="mt-5 bg-[#2A2A2A] border-[#3A3A3A] text-white"
@@ -639,7 +657,7 @@ const ArtFinderDashboard = () => {
                 <CardContent className="text-gray-300">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {insights.competitors.map((competitor, index) => (
-                        <Card className="bg-[#1A1A1A] border-[#2A2A2A] hover:border-blue-500/50 transition-all duration-300 
+                        <Card key={index} className="bg-[#1A1A1A] border-[#2A2A2A] hover:border-blue-500/50 transition-all duration-300 
                                     hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] animate-slide-up-1">
                             <CardHeader>
                             <CardTitle className="flex items-center gap-2 text-white group">
@@ -783,6 +801,7 @@ const ArtFinderDashboard = () => {
             </div>
           </TabsContent>
         </Tabs>
+        )}
       </div>
     </div>
   );
